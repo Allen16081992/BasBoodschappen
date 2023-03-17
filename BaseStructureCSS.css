@@ -1,0 +1,33 @@
+@font-face {
+    font-family: Pricedown;
+    src: url("Resources/pricedown bl.otf") format("opentype");
+}
+
+@font-face{
+    font-family: Jaldi;
+    src: url("Resources/Jaldi-Bold.ttf") format('truetype');
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Jaldi, sans-serif;
+}
+
+
+
+
+.NavBarBase{
+    width: 100vw;
+    height: 5vh;
+    background-color: #F01C00;
+
+}
+
+.NavBarText{
+    margin: 0 0 0 40vw;
+    font-size: 26px;
+    font-family: Pricedown;
+    color: white;
+    text-shadow: 3px 3px black;
+}
