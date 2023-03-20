@@ -223,6 +223,9 @@ function LeverancierSearch($keyword)
         echo "</form>";
     }
 }
+#endregion
+
+#region InkoopOrder
 //--------Dhr. Allen---------//
 function CreateInkoopOrderTable() {
     global $connection;
