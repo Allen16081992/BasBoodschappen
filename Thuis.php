@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<?php require "DBPostProcess.php";
-require "CreateTables.php"; ?>
+<?php 
+    require "DBPostProcess.php"; 
+    require "CreateTables.php"; 
+?>
 <html style="font-size: 16px;" lang="nl">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +16,7 @@ require "CreateTables.php"; ?>
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 5.4.4, nicepage.com">
-    <link id="u-theme-google-font" rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
 </head>
 <body class="u-body u-xl-mode" data-lang="nl">
 <header class="u-align-left u-clearfix u-header u-section-row-container" id="sec-3d37">
@@ -165,7 +165,6 @@ require "CreateTables.php"; ?>
                         </form>
                         <!---------------------------SEARCH BAR------------------------>
 
-
                         <div class="u-expanded-width u-table u-table-responsive u-table-1">
                             <table class="u-table-entity">
                                 <tbody class="u-table-alt-grey-5 u-table-body">
@@ -203,7 +202,7 @@ require "CreateTables.php"; ?>
                                         <td><input type="text" name="plaats" placeholder="Klantwoonplaats"
                                                    ></td>
                                         <td><input type="hidden" name="createklant"
-                                                   placeholder="You shouldn't be seeing this" value="1"</td>
+                                                   placeholder="You shouldn't be seeing this" value="1"></td>
                                         <td>
                                             <button class="Create-button">Save</button>
                                         </td>
@@ -282,7 +281,7 @@ require "CreateTables.php"; ?>
                                         <td><input type="text" name="plaats" placeholder="levwoonplaats"
                                                    ></td>
                                         <td><input type="hidden" name="createleverancier"
-                                                   placeholder="You shouldn't be seeing this" value="1"</td>
+                                                   placeholder="You shouldn't be seeing this" value="1"></td>
                                         <td>
                                             <button class="Create-button">Save</button>
                                         </td>
@@ -305,31 +304,68 @@ require "CreateTables.php"; ?>
                 <!---------------------------------------------LEVERANCIERTABEL----------------------------------------------->
 
                 <!---------------------------------------------INKOOPTABEL---------------------------------------------------->
+                <!----------Dhr.Allen----------->
                 <div class="hidden" id="tab3content">
                     <div class="u-container-layout u-container-layout-3">
                         <h6 class="u-text u-text-default u-text-4">Zoek hier via&nbsp; ID of ?
                         </h6>
-                        <form action="#" method="get"
-                              class="u-border-1 u-border-grey-30 u-search u-search-left u-white u-search-3">
+
+                        <!---------------------------SEARCH BAR------------------------>
+                        <form action="Thuis.php" method="post" class="u-border-1 u-border-grey-30 u-search u-search-left u-white u-search-1">
                             <button class="u-search-button" type="submit">
-                    <span class="u-search-icon u-spacing-10">
-                    <img src="images/search.png" style="height: 18px;"> </span>
+                                <span class="u-search-icon u-spacing-10">
+                                  <img src="images/search.png" style="height: 18px;">
+                                </span>
                             </button>
-                            <input class="u-search-input" type="search" name="search" value="" placeholder="Search">
+                            <input class="u-search-input" name="InkoopSearch" value="" placeholder="Search">
                         </form>
+                        <!---------------------------SEARCH BAR------------------------>
+
                         <div class="u-expanded-width u-table u-table-responsive u-table-3">
                             <table class="u-table-entity">
                                 <tbody class="u-table-alt-grey-5 u-table-body">
-                                <tr style="height: 51px;">
-                                    <td class="u-table-cell"></td>
-                                    <td class="u-table-cell"> InkOrdId</td>
-                                    <td class="u-table-cell"> LevId</td>
-                                    <td class="u-table-cell"> ArtId</td>
-                                    <td class="u-table-cell">InkOrdDatum</td>
-                                    <td class="u-table-cell">InkOrdStatus</td>
-                                    <td class="u-table-cell u-table-cell-92"></td>
+                                <tr style="height: 38px;">
+                                    <!--<td class="u-table-cell">Rij</td>-->
+                                    <td></td>
+                                    <td class="u-table-cell">InkoopOrder ID</td>
+                                    <td class="u-table-cell">Leverancier ID</td>
+                                    <td class="u-table-cell">Artikel ID</td>
+                                    <td class="u-table-cell">InkoopOrderDatum</td>
+                                    <td class="u-table-cell">inkOrdBestAantal</td>
+                                    <td class="u-table-cell">InkoopOrderStatus</td>
+                                    <td></td>
+                                    <td>
+                                        <button class="Create-button" onclick="ShowCreateMenu()"
+                                            onmouseover="SetCorrectElements_inkoop('InkoopHiddenCreate', 'CreateButtonInkoop')"
+                                            id="CreateButtonInkoop">Create
+                                        </button>
+                                    </td>
                                 </tr>
+
+                                <!--THIS TR WILL ONLY SHOW IF THE BUTTON (id=CreateButton) IS CLICKED-->
+                                <tr id="InkoopHiddenCreate">
+                                    <form action="Thuis.php" method="post">
+                                        <td></td>
+                                        <td></td>
+                                        <td><input type="number" name="number" placeholder="levid" ></td>
+                                        <td><input type="number" name="number" placeholder="artid" ></td>
+                                        <td><input type="date" name="date" placeholder="InkoopOrderDatum" ></td>
+                                        <td><input type="date" name="date" placeholder="Bestel Aantal" ></td>
+                                        <td><input type="text" name="status" placeholder="InkoopOrderStatus" ></td>
+                                        <td><input type="hidden" name="createinkooporder" placeholder="No see" value="1" ></td>
+                                        <td>
+                                            <button class="Create-button">Save</button>
+                                        </td>
+                                    </form>
+                                </tr>
+                                <!--END CREATE FORM -->
                                 </tbody>
+                                <?php
+                                if (isset($_POST["InkoopSearch"])) {
+                                    InkoopOrderSearch($_POST["InkoopSearch"]);
+                                } 
+                                else { CreateInkoopOrderTable(); }
+                                //CREATE THE KLANTINKOOP TABEL EN OVERIGE VEREISTEN//?>
                             </table>
                         </div>
                     </div>

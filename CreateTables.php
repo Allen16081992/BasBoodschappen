@@ -223,4 +223,60 @@ function LeverancierSearch($keyword)
         echo "</form>";
     }
 }
+//--------Dhr. Allen---------//
+function CreateInkoopOrderTable() {
+    global $connection;
+    $query = $connection->dbConnect->prepare("SELECT inkOrdId, levId, artId, inkOrdDatum, inkOrdBestAantal,	inkOrdStatus FROM inkooporders");
+    $query->execute();
+
+    $rowcount1 = 0;
+    while ($row = $query->fetch()) {
+        $rowcount1++;
+        $inkoopid = $row["inkOrdId"];
+        echo
+            "<form action='Thuis.php' method='post'>
+                <tr class='shownInkoopEdit'>
+                <td><button class='delet-button'><img src='images/RedX.png' height='25px' width='25px'></button></td>
+                <td>" . $row["inkOrdId"] . "</td>
+                <input type='hidden' name='inkOrdId' value=" . $row["inkOrdId"] . ">
+                
+                <td>" . $row["levid"] . "</td>
+                <input type='hidden' name='levid'>
+                
+                <td>" . $row["artid"] . "</td>
+                <input type='hidden' name='artid'>
+                
+                <td>" . $row["inkOrdDatum"] . "</td>
+                <input type='hidden' name='date'>
+                
+                <td>" . $row['inkOrdBestAantal'] . "</td>
+                <input type='hidden' name='number'>
+                
+                <td>" . $row['inkOrdStatus'] . '</td>
+                <input type="hidden" name="text">
+                
+                <td><input type="hidden" name="deleteInkoopOrder"></td>
+                <td><input class="Create-button" type="button" onclick="OpenEditMenu(' . $rowcount1 . ', \'inkooporder\')" value="edit"></td>
+            </tr>
+        </form>
+        <form action="Thuis.php" method="post">
+            <tr id="hidden" class="hiddenInkoopOrderEdit">
+                <td></td>
+                <td>' . $row["inkOrdId"] . '</td>
+                <td><input type="text" name="number" value="' . $row["levid"] . '"></td>
+                <td><input type="text" name="number" value="' . $row["artid"] . '"></td>
+                <td><input type="date" name="date" value="' . $row["inkOrdDatum"] . '"></td>
+                <td><input type="number" name="number" value="' . $row["inkOrdBestAantal"] . '"></td>
+                <td><input type="text" name="status" value="' . $row["inkOrdStatus"] . '"></td>
+                <td><input type="hidden" name="inkOrdId" value=' . $row["inkOrdId"] . "></td>
+                <input type='hidden' name='updateleverancier'>
+                <td><button class='Create-button'>Save</button></td>
+                <td><input class='Create-button' type='button' onclick='CloseEditMenu(" . $rowcount1 . ", \"inkooporder\")' value='cancel'</td>
+            </tr>";
+        echo "</form>";
+    }
+}
+function InkoopOrderSearch($keyword) {
+    //To be continued...
+}
 #endregion

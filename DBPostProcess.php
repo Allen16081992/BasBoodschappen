@@ -2,6 +2,7 @@
 require_once "PDOConnection.php";
 require_once "KlantStatements.php";
 require_once "LeverancierStatements.php";
+require_once "InkoopOrderStmt.php"; //---Allen---//
 
 $connection = new DatabaseConnect("localhost", "root", "", "bas_ommoord_db");
 
