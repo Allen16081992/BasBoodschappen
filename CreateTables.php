@@ -37,11 +37,11 @@ function CreateKlantTable()
             <tr id="hidden" class="hiddenKlantEdit">
                 <td></td>
                 <td>' . $row["klantid"] . '</td>
-                <td><input type="text" name="naam" value="' . $row["klantnaam"] . '"></td>
-                <td><input type="text" name="email" value="' . $row["klantEmail"] . '"></td>
-                <td><input type="text" name="adres" value="' . $row["klantAdres"] . '"></td>
-                <td><input type="text" name="postcode" value="' . $row["klantPostcode"] . '"></td>
-                <td><input type="text" name="plaats" value="' . $row["klantWoonplaats"] . '"></td>
+                <td><input type="text" name="naam" minlength="2" maxlength="20" required="required" value="' . $row["klantnaam"] . '"></td>
+                <td><input type="text" name="email" minlength="2" maxlength="30" required="required" value="' . $row["klantEmail"] . '"></td>
+                <td><input type="text" name="adres" maxlength="30" value="' . $row["klantAdres"] . '"></td>
+                <td><input type="text" name="postcode" maxlength="6" value="' . $row["klantPostcode"] . '"></td>
+                <td><input type="text" name="plaats" minlength="2" maxlength="25" required="required" value="' . $row["klantWoonplaats"] . '"></td>
                 <td><input type="hidden" name="klantid" value=' . $row["klantid"] . "></td>
                 <input type='hidden' name='updateklant'>
                 <td><button class='Create-button'>Save</button></td>
@@ -91,12 +91,12 @@ function KlantSearch($keyword)
             <tr id="hidden" class="hiddenKlantEdit">
                 <td></td>
                 <td>' . $row["klantid"] . '</td>
-                <td><input type="text" name="naam" value="' . $row["klantnaam"] . '"></td>
-                <td><input type="text" name="email" value="' . $row["klantEmail"] . '"></td>
-                <td><input type="text" name="adres" value="' . $row["klantAdres"] . '"></td>
-                <td><input type="text" name="postcode" value="' . $row["klantPostcode"] . '"></td>
-                <td><input type="text" name="plaats" value="' . $row["klantWoonplaats"] . '"></td>
-                <td><input type="hidden" name="klantid" value=' . $row["klantid"] . "></td>
+                <td><input type="text" name="naam" minlength="2" maxlength="20" required="required" value="' . $row["klantnaam"] . '"></td>
+                <td><input type="text" name="email" minlength="2" maxlength="30" required="required" value="' . $row["klantEmail"] . '"></td>
+                <td><input type="text" name="adres" maxlength="30" value="' . $row["klantAdres"] . '"></td>
+                <td><input type="text" name="postcode" maxlength="6" value="' . $row["klantPostcode"] . '"></td>
+                <td><input type="text" name="plaats" minlength="2" maxlength="25" required="required" value="' . $row["klantWoonplaats"] . '"></td>
+                <td><input type="hidden" name="klantid" required="required" ' . $row["klantid"] . "></td>
                 <input type='hidden' name='updateklant'>
                 <td><button class='Create-button'>Save</button></td>
                 <td><input class='Create-button' type='button' onclick='CloseEditMenu(" . $rowcount2 . ", \"klant\")' value='cancel'</td>
@@ -151,12 +151,12 @@ function CreateLeverancierTable()
             <tr id="hidden" class="hiddenLeverancierEdit">
                 <td></td>
                 <td>' . $row["levid"] . '</td>
-                <td><input type="text" name="naam" value="' . $row["levnaam"] . '"></td>
-                <td><input type="text" name="contact" value="' . $row["levcontact"] . '"></td>
-                <td><input type="text" name="email" value="' . $row["levEmail"] . '"></td>
-                <td><input type="text" name="adres" value="' . $row["levAdres"] . '"></td>
-                <td><input type="text" name="postcode" value="' . $row["levPostcode"] . '"></td>
-                <td><input type="text" name="plaats" value=' . $row["levWoonplaats"] . '></td>
+                <td><input type="text" name="naam" maxlength="15" required="required" value="' . $row["levnaam"] . '"></td>
+                <td><input type="text" name="contact" minlength="4" maxlength="20" value="' . $row["levcontact"] . '"></td>
+                <td><input type="text" name="email" maxlength="30" required="required" value="' . $row["levEmail"] . '"></td>
+                <td><input type="text" name="adres" maxlength="30" required="required" value="' . $row["levAdres"] . '"></td>
+                <td><input type="text" name="postcode" maxlength="6" required="required" value="' . $row["levPostcode"] . '"></td>
+                <td><input type="text" name="plaats" maxlength="25" required="required" value=' . $row["levWoonplaats"] . '></td>
                 <td><input type="hidden" name="levid" value=' . $row["levid"] . "></td>
                 <input type='hidden' name='updateleverancier'>
                 <td><button class='Create-button'>Save</button></td>
@@ -209,12 +209,12 @@ function LeverancierSearch($keyword)
             <tr id="hidden" class="hiddenLeverancierEdit">
                 <td></td>
                 <td>' . $row["levid"] . '</td>
-                <td><input type="text" name="naam" value="' . $row["levnaam"] . '"></td>
-                <td><input type="text" name="contact" value="' . $row["levcontact"] . '"></td>
-                <td><input type="text" name="email" value="' . $row["levEmail"] . '"></td>
-                <td><input type="text" name="adres" value="' . $row["levAdres"] . '"></td>
-                <td><input type="text" name="postcode" value="' . $row["levPostcode"] . '"></td>
-                <td><input type="text" name="plaats" value="' . $row["levWoonplaats"] . '"></td>
+                <td><input type="text" name="naam" maxlength="15" required="required" value="' . $row["levnaam"] . '"></td>
+                <td><input type="text" name="contact" minlength="4" maxlength="20" value="' . $row["levcontact"] . '"></td>
+                <td><input type="text" name="email" maxlength="30" required="required" value="' . $row["levEmail"] . '"></td>
+                <td><input type="text" name="adres" maxlength="30" required="required" value="' . $row["levAdres"] . '"></td>
+                <td><input type="text" name="postcode" maxlength="6" required="required" value="' . $row["levPostcode"] . '"></td>
+                <td><input type="text" name="plaats" maxlength="25" required="required" value="' . $row["levWoonplaats"] . '"></td>
                 <td><input type="hidden" name="klantid" value=' . $row["levid"] . "></td>
                 <input type='hidden' name='updateleverancier'>
                 <td><button style='width:4em;'>Save</button></td>
