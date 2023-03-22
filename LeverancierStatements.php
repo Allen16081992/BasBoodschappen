@@ -69,4 +69,46 @@ class Leverancier
             "levid" => $this->levid
         ]);
     }
+
+    public function ShowLeverancier($listNumber)
+    {
+        echo
+            "<form action='Thuis.php' method='post'>
+                <tr class='shownLeverancierEdit'>
+                <td><button class='delet-button'><img src='images/RedX.png' height='25px' width='25px'></button></td>
+                <td>" . $this->levid . "</td>
+                <input type='hidden' name='levid' value=" . $this->levid . ">
+                <td>" . $this->levnaam . "</td>
+                <input type='hidden' name='naam'>
+                <td>" . $this->levcontact . "</td>
+                <input type='hidden' name='contact'>
+                <td>" . $this->levemail . "</td>
+                <input type='hidden' name='email'>
+                <td>" . $this->levadres . "</td>
+                <input type='hidden' name='adres'>
+                <td>" . $this->levpostcode . "</td>
+                <input type='hidden' name='postcode'>
+                <td>" . $this->levwoonplaats . '</td>
+                <input type="hidden" name="plaats">
+                <td><input type="hidden" name="deleteleverancier"></td>
+                <td><input class="Create-button" type="button" onclick="OpenEditMenu(' . $listNumber . ', \'leverancier\')" value="edit"></td>
+            </tr>
+        </form>
+        <form action="Thuis.php" method="post">
+            <tr id="hidden" class="hiddenLeverancierEdit">
+                <td></td>
+                <td>' . $this->levid . '</td>
+                <td><input type="text" name="naam" minlength="2" maxlength="20" required="required" value="' . $this->levnaam . '"></td>
+                <td><input type="text" name="contact" minlength="4" maxlength="20" value="' . $this->levcontact . '"></td>
+                <td><input type="text" name="email" minlength="2" maxlength="30" required="required" value="' . $this->levemail . '"></td>
+                <td><input type="text" name="adres" maxlength="30" value="' . $this->levadres . '"></td>
+                <td><input type="text" name="postcode" maxlength="6" value="' . $this->levpostcode . '"></td>
+                <td><input type="text" name="plaats" minlength="2" maxlength="25" required="required" value="' . $this->levwoonplaats . '"></td>
+                <td><input type="hidden" name="klantid" value=' . $this->levid . "></td>
+                <input type='hidden' name='updateleverancier'>
+                <td><button class='Create-button'>Save</button></td>
+                <td><input class='Create-button' type='button' onclick='CloseEditMenu(" . $listNumber . ", \"leverancier\")' value='cancel'</td>
+            </tr>";
+        echo "</form>";
+    }
 }
