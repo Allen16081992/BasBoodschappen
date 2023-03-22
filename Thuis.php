@@ -347,10 +347,10 @@
                                     <form action="Thuis.php" method="post">
                                         <td></td>
                                         <td></td>
-                                        <td><input type="number" name="number" placeholder="levid" ></td>
-                                        <td><input type="number" name="number" placeholder="artid" ></td>
-                                        <td><input type="date" name="date" placeholder="InkoopOrderDatum" ></td>
-                                        <td><input type="date" name="date" placeholder="Bestel Aantal" ></td>
+                                        <td><input type="number" name="levnumber" placeholder="levid" ></td>
+                                        <td><input type="number" name="artnumber" placeholder="artid" ></td>
+                                        <td><input type="date" name="datum" placeholder="InkoopOrderDatum" ></td>
+                                        <td><input type="number" name="bestel" placeholder="Bestel Aantal" ></td>
                                         <td><input type="text" name="status" placeholder="InkoopOrderStatus" ></td>
                                         <td><input type="hidden" name="createinkooporder" placeholder="No see" value="1" ></td>
                                         <td>
@@ -365,7 +365,7 @@
                                     InkoopOrderSearch($_POST["InkoopSearch"]);
                                 } 
                                 else { CreateInkoopOrderTable(); }
-                                //CREATE THE KLANTINKOOP TABEL EN OVERIGE VEREISTEN//?>
+                                //CREATE THE INKOOPORDER TABEL EN OVERIGE VEREISTEN//?>
                             </table>
                         </div>
                     </div>
