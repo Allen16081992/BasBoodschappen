@@ -64,3 +64,4 @@ if(ISSET($_POST["deleteinkooporder"] )) {
     $InkoopToDelete = new InkoopOrder($inkid, $_POST["levnumber"], $_POST["artnumber"], $_POST["datum"], $_POST["bestel"], $_POST["status"]);
     $InkoopToDelete->DeleteInkoopOrder($connection->dbConnect);
 }
+#endregion
