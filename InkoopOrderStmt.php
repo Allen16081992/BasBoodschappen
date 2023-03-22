@@ -20,11 +20,15 @@
         }
 
         //To be continued... public function CreateInkoopOrder//
+        public function CreateInkoopOrder($db) {
 
-        public function InkoopOrderSearch($db) {
-            $query = $db->prepare("SELECT inkOrdId FROM inkooporders");
-            $query->execute([
-                "inkOrdId" => $this->inkOrdId
-            ]);
+        }
+
+        public function UpdateInkoopOrder($db) {
+
+        }
+
+        public function DeleteInkoopOrder($db) {
+
         }
     }
