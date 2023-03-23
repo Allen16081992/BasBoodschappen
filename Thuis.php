@@ -346,9 +346,9 @@
                                 <tr id="InkoopHiddenCreate">
                                     <form action="Thuis.php" method="post">
                                         <td></td>
-                                        <td></td>
-                                        <td><input type="number" name="levid" placeholder="levid" ></td>
-                                        <td><input type="number" name="artid" placeholder="artid" ></td>
+                                        <td><input type="hidden" name="inkid" value="<?php echo $inkid ?>" ></td>
+                                        <td><input type="hidden" name="levid" value="<?php echo $levid ?>" ></td>
+                                        <td><input type="hidden" name="artid" value="<?php echo $artid ?>" ></td>
                                         <td><input type="date" name="inkdate" placeholder="InkoopOrderDatum" ></td>
                                         <td><input type="number" name="inkvalue" placeholder="Bestel Aantal" ></td>
                                         <td><input type="text" name="inkstatus" placeholder="InkoopOrderStatus" ></td>
@@ -470,11 +470,11 @@
                                 </tr>
                                 </tbody>
                                 <?php
-                                if (isset($_POST["artikelSearchSearch"])) {
-                                    artikelSearch($_POST["artikelSearch"]);
-                                } else {
-                                    CreateartikelTable();
-                                }
+                                //if (isset($_POST["artikelSearchSearch"])) {
+                                //    artikelSearch($_POST["artikelSearch"]);
+                                //} else {
+                                //    CreateartikelTable();
+                                //}
                                 //CREATE THE ARTIKEL TABEL EN ALLE KNOPPEN//?>
                             </table>
                         </div>
