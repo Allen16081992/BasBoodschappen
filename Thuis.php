@@ -349,9 +349,9 @@
                                         <td></td>
                                         <td><input type="number" name="levid" placeholder="levid" ></td>
                                         <td><input type="number" name="artid" placeholder="artid" ></td>
-                                        <td><input type="date" name="datum" placeholder="InkoopOrderDatum" ></td>
-                                        <td><input type="number" name="bestel" placeholder="Bestel Aantal" ></td>
-                                        <td><input type="text" name="status" placeholder="InkoopOrderStatus" ></td>
+                                        <td><input type="date" name="inkdate" placeholder="InkoopOrderDatum" ></td>
+                                        <td><input type="number" name="inkvalue" placeholder="Bestel Aantal" ></td>
+                                        <td><input type="text" name="inkstatus" placeholder="InkoopOrderStatus" ></td>
                                         <td><input type="hidden" name="createinkooporder" placeholder="No see" value="1" ></td>
                                         <td>
                                             <button class="Create-button">Save</button>
