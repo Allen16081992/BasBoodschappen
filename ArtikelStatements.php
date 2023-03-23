@@ -70,7 +70,7 @@ Artikel
         ]);
     }
 
-    public function ShowKlant($listNumber)
+    public function Showartikel($listNumber)
     {
         echo
             "<form action='Thuis.php' method='post'>

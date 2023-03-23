@@ -470,11 +470,19 @@
                                 </tr>
                                 </tbody>
                                 <?php
+<<<<<<< Updated upstream
                                 //if (isset($_POST["artikelSearchSearch"])) {
                                 //    artikelSearch($_POST["artikelSearch"]);
                                 //} else {
                                 //    CreateartikelTable();
                                 //}
+=======
+//                                if (isset($_POST["artikelSearchSearch"])) {
+//                                    artikelSearch($_POST["artikelSearch"]);
+//                                } else {
+                                    CreateartikelenTable();
+//                                }
+>>>>>>> Stashed changes
                                 //CREATE THE ARTIKEL TABEL EN ALLE KNOPPEN//?>
                             </table>
                         </div>

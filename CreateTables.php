@@ -4,6 +4,8 @@ require_once "DBPostProcess.php";
 require_once "KlantStatements.php";
 require_once "LeverancierStatements.php";
 require_once "InkoopOrderStmt.php";
+require_once "VerkoopOderStatements.php";
+require_once "ArtikelStatements.php";
 
 #region Klanten
 function CreateKlantTable()
@@ -125,9 +127,9 @@ function InkoopOrderSearch($keyword)
                     OR artId REGEXP '$keyword' 
                     OR inkOrdStatus REGEXP '$keyword'");
     $querySearch->execute();
-    $rowcount4 = 0;
+    $rowcount6 = 0;
     foreach ($querySearch->fetchAll() as $order) {
-        $rowcount4++;
+        $rowcount6++;
         $InkoopOrderInRow = new InkoopOrder(
             $order["inkOrdId"],
             $order["levId"],
@@ -136,22 +138,20 @@ function InkoopOrderSearch($keyword)
             $order["inkOrdBestAantal"],
             $order["inkOrdStatus"]);
 
-        $InkoopOrderInRow->ShowInkoopOrder($rowcount4);
+        $InkoopOrderInRow->ShowInkoopOrder($rowcount6);
     }
 }
 #endregion
 
-
-#region Leverancieren
 function CreateartikelenTable()
 {
     global $connection;
-    $query = $connection->dbConnect->prepare("SELECT * FROM artikel");
+    $query = $connection->dbConnect->prepare("SELECT * FROM artikelen");
     $query->execute();
     $rowcount3 = 0;
     foreach ($query->fetchAll() as $artikel) {
         $rowcount3++;
-        $artikelInRow = new artikel(
+        $artikelInRow = new Artikel(
             $artikel["artId"],
             $artikel["artOmschrijving"],
             $artikel["artInkoop"],
@@ -175,7 +175,7 @@ function artikelSearch($keyword)
     $rowcount4 = 0;
     foreach ($querySearch->fetchAll() as $artikel) {
         $rowcount4++;
-        $artikelInRow = new Leverancier(
+        $artikelInRow = new Artikel(
             $artikel["artId"],
             $artikel["artOmschrijving"],
             $artikel["artInkoop"],
