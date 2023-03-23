@@ -336,7 +336,7 @@
                                     <td></td>
                                     <td>
                                         <button class="Create-button" onclick="ShowCreateMenu()"
-                                            onmouseover="SetCorrectElements_inkoop('InkoopHiddenCreate', 'CreateButtonInkoop')"
+                                            onmouseover="SetCorrectElements_inkoopOrder('InkoopHiddenCreate', 'CreateButtonInkoop')"
                                             id="CreateButtonInkoop">Create
                                         </button>
                                     </td>
@@ -347,8 +347,8 @@
                                     <form action="Thuis.php" method="post">
                                         <td></td>
                                         <td></td>
-                                        <td><input type="number" name="levnumber" placeholder="levid" ></td>
-                                        <td><input type="number" name="artnumber" placeholder="artid" ></td>
+                                        <td><input type="number" name="levid" placeholder="levid" ></td>
+                                        <td><input type="number" name="artid" placeholder="artid" ></td>
                                         <td><input type="date" name="datum" placeholder="InkoopOrderDatum" ></td>
                                         <td><input type="number" name="bestel" placeholder="Bestel Aantal" ></td>
                                         <td><input type="text" name="status" placeholder="InkoopOrderStatus" ></td>
@@ -364,7 +364,9 @@
                                 if (isset($_POST["InkoopSearch"])) {
                                     InkoopOrderSearch($_POST["InkoopSearch"]);
                                 } 
-                                else { CreateInkoopOrderTable(); }
+                                else {
+                                    CreateInkoopOrderTable();
+                                }
                                 //CREATE THE INKOOPORDER TABEL EN OVERIGE VEREISTEN//?>
                             </table>
                         </div>
