@@ -436,9 +436,46 @@
                                     <td class="u-table-cell">ArtMaxVoorraad</td>
                                     <td class="u-table-cell">ArtLocatie</td>
                                     <td class="u-table-cell">LevId</td>
-                                    <td class="u-table-cell u-table-cell-171"></td>
+                                    <td></td>
+                                    <button class="Create-button" onclick="ShowCreateMenu()"
+                                            onmouseover="SetCorrectElements_artikel('artikelHiddenCreate', 'CreateButtonartikel')"
+                                            id="CreateButtonartikel">Create
+                                    </button>
+                                </tr>
+                                <tr id="artikelHiddenCreate">
+                                    <form action="Thuis.php" method="post">
+                                        <td></td>
+                                        <td></td>
+                                        <td><input type="text" name="artomschrijving" placeholder="artomschrijving" >
+                                        </td>
+                                        <td><input type="text" name="artinkoop" placeholder="artinkoop"
+                                            ></td>
+                                        <td><input type="text" name="artverkoop" placeholder="artverkoop"
+                                            ></td>
+                                        <td><input type="text" name="artvoorraad" placeholder="artvoorraad"
+                                            ></td>
+                                        <td><input type="text" name="artminvoorraad" placeholder="artminvoorraad"
+                                            ></td>
+                                        <td><input type="text" name="artmaxvoorraad" placeholder="artmaxvoorraad"
+                                            ></td>
+                                        <td><input type="text" name="artlocatie" placeholder="artlocatie"
+                                            ></td>
+                                        <td><input type="text" name="levid" placeholder="levid"></td>
+                                        <td><input type="hidden" name="createartikel"
+                                                   placeholder="You shouldn't be seeing this" value="1"></td>
+                                        <td>
+                                            <button class="Create-button">Save</button>
+                                        </td>
+                                    </form>
                                 </tr>
                                 </tbody>
+                                <?php
+                                if (isset($_POST["artikelSearchSearch"])) {
+                                    artikelSearch($_POST["artikelSearch"]);
+                                } else {
+                                    CreateartikelTable();
+                                }
+                                //CREATE THE ARTIKEL TABEL EN ALLE KNOPPEN//?>
                             </table>
                         </div>
                     </div>

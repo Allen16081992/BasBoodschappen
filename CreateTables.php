@@ -142,4 +142,52 @@ function InkoopOrderSearch($keyword)
 #endregion
 
 
+#region Leverancieren
+function CreateartikelenTable()
+{
+    global $connection;
+    $query = $connection->dbConnect->prepare("SELECT * FROM artikel");
+    $query->execute();
+    $rowcount3 = 0;
+    foreach ($query->fetchAll() as $artikel) {
+        $rowcount3++;
+        $artikelInRow = new artikel(
+            $artikel["artId"],
+            $artikel["artOmschrijving"],
+            $artikel["artInkoop"],
+            $artikel["artVerkoop"],
+            $artikel["artVoorraad"],
+            $artikel["artMinVoorraad"],
+            $artikel["artMaxVoorraad"],
+            $artikel["artLocatie"],
+            $artikel["levId"]);
+
+        $artikelInRow->Showartikel($rowcount3);
+    }
+}
+function artikelSearch($keyword)
+{
+    global $connection;
+    $querySearch = $connection->dbConnect->prepare(
+        "SELECT * FROM artikelen WHERE 
+                    artOmschrijving REGEXP '$keyword' OR artid REGEXP '$keyword'");
+    $querySearch->execute();
+    $rowcount4 = 0;
+    foreach ($querySearch->fetchAll() as $artikel) {
+        $rowcount4++;
+        $artikelInRow = new Leverancier(
+            $artikel["artId"],
+            $artikel["artOmschrijving"],
+            $artikel["artInkoop"],
+            $artikel["artVerkoop"],
+            $artikel["artVoorraad"],
+            $artikel["artMinVoorraad"],
+            $artikel["artMaxVoorraad"],
+            $artikel["artLocatie"],
+            $artikel["levId"]);
+
+        $artikelInRow->Showartikel($rowcount4);
+    }
+}
+#endregion
 
