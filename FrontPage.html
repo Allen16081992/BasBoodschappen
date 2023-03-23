@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dirk - Client Portal</title>  
+    
+    <!-- Inline CSS -->
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box;}
+        body { 
+            background: url(./images/city.jpg) no-repeat; background-size:cover; 
+            background-position:bottom; height:100vh; overflow:hidden;           
+        }
+
+        /* Large Square Buttons */
+        nav { position: absolute; z-index:3;}
+        button { 
+            margin:2em; padding:1em; height:8em; width:auto; border-radius:10px; 
+            cursor:pointer; font-weight:bold; background-color:rgba(0,0,0,0.66); color:#f9f9f9;
+        }
+        button:hover { background-color: rgba(255,0,0,0.65);}
+
+        .hidden { opacity:0; filter: blur(5px); transform: translateX(400%); transition: all 1s;}
+        .show { opacity:1; filter: blur(0); transform: translateX(0);}
+
+        /* Truck & Box */
+        .objects { position: absolute; height: 150px; bottom:20px; left:0; width:100%;}
+        .image { position: absolute; width:150px;}
+        .trucky { bottom:0; left:-40em; width:25em; z-index:1; animation: trucky 8s linear infinite;}
+        @keyframes trucky { 40%, 70% { left:50%; } 100% { left:100%; } }
+        .boxy { width:5em; z-index:2; top:20%; left:45%; opacity:0; animation: boxy 8s linear infinite;}
+        @keyframes boxy { 0%, 40% { opacity:0; left: 45%;} 50% { opacity:1; left:51%;} 60%, 100% { opacity:0; left:51%;}}
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <button onclick="window.location.href='Thuis.php'" class="hidden">Bas Boodschappen</button>
+    </nav>
+
+    <!-- Moving Objects -->
+    <div class="objects">
+        <img class="image trucky" src="images/trucky.png" alt="">
+        <img class="image boxy" src="images/boxy.png" alt="">
+    </div>
+
+    <!-- Tiny bit of Javascript for my Button -->
+    <script>
+        //Stay vigilant on multiple elements, do something when visibility changes 
+        const observer = new IntersectionObserver((entries) => {
+            //loop over anything & everything, and insert the word 'show'
+            entries.forEach((entry) => {
+                console.log(entry)
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+        //Remain observant on everything...
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
