@@ -37,6 +37,17 @@ function OpenEditMenu(number, dbtable)
                 shownInkoopOrderEdit[number - 1].setAttribute("id", "hidden");
             }
             break;
+        case "artikel":
+            hiddenartikelEdit = document.getElementsByClassName("hiddenartikelEdit");
+            for (i = 0; i < 1; i++) {
+                hiddenartikelEdit[number - 1].removeAttribute("id");
+            }
+
+            shownartikelEdit = document.getElementsByClassName("shownEditartikel");
+            for (i = 0; i < 1; i++) {
+                shownartikelEdit[number - 1].setAttribute("id", "hidden");
+            }
+            break;
     }
 }
 function CloseEditMenu(number, dbtable)
@@ -80,6 +91,18 @@ function CloseEditMenu(number, dbtable)
                 shownInkoopOrderEdit[number - 1].removeAttribute("id");
             }
             break;
+        case "artikel":
+            hiddenartikelEdit = document.getElementsByClassName("hiddenartikelEdit");
+            for(i = 0; i < 1; i++) {
+                hiddenartikelEdit[number - 1].setAttribute("id", "hidden");
+            }
+
+
+            shownartikelEdit = document.getElementsByClassName("shownEditartikel");
+            for(i = 0; i < 1; i++) {
+                shownartikelEdit[number - 1].removeAttribute("id");
+            }
+            break;
     }
 
 }
@@ -95,6 +118,10 @@ var CreateButtonLeverancier;
 let stateInkoop = 0;
 var ElemInkoop;
 var CreateButtonInkoop;
+
+let stateartikel = 0;
+var Elemartikel;
+var CreateButtonartikel;
 function ShowCreateMenu()
 {
     if(sessionStorage.getItem("CurrentTab") == 1)
@@ -144,6 +171,21 @@ function ShowCreateMenu()
             stateInkoop = 0
         }
     }
+    if(sessionStorage.getItem("CurrentTab") == 5)
+    {
+        if(stateartikel == 0) //state 0 means the menu is hiddenartikel
+        {
+            CreateButtonartikel.innerText = "Hide";
+            Elemartikel.removeAttribute("id");
+            stateartikel = 1
+        }
+        else
+        {
+            CreateButtonartikel.innerText = "Create";
+            Elemartikel.setAttribute("id", "hidden");
+            stateartikel = 0
+        }
+    }
 
 }
 
@@ -171,5 +213,13 @@ function SetCorrectElements_inkoopOrder(Form, Create)
     {
         ElemInkoop = document.getElementById(Form);
         CreateButtonInkoop = document.getElementById(Create);
+    }
+}
+function SetCorrectElements_artikel(Form, Create)
+{
+    if(Elemartikel == null || CreateButtonartikel == null)
+    {
+        Elemartikel = document.getElementById(Form);
+        CreateButtonartikel = document.getElementById(Create);
     }
 }

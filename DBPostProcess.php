@@ -3,6 +3,7 @@ require_once "PDOConnection.php";
 require_once "KlantStatements.php";
 require_once "LeverancierStatements.php";
 require_once "InkoopOrderStmt.php"; //---Allen---//
+require_once "artikelStatements.php"; //Ibrahim
 
 $connection = new DatabaseConnect("localhost", "root", "", "bas_ommoord_db");
 
@@ -65,3 +66,22 @@ if(ISSET($_POST["deleteinkooporder"] )) {
     $InkoopToDelete->DeleteInkoopOrder($connection->dbConnect);
 }
 #endregion
+#region artikelen
+if(ISSET($_POST["createartikel"]))
+{
+    $artid = -1;
+    $artikelToCreate = new artikel($artid, $_POST["artOmschrijving"], $_POST["artInkoop"],$_POST["artVerkoop"], $_POST["artVoorraad"], $_POST["artMinVoorraad"], $_POST["artMaxVoorraad"] , $_POST["artLocatie"] , $_POST["levId"]);
+    $artikelToCreate->Createartikel($connection->dbConnect);
+}
+
+if(ISSET($_POST["updateartikel"]))
+{
+    $artikelToUpdate = new artikel($_POST["artOmschrijving"], $_POST["artInkoop"],$_POST["artVerkoop"], $_POST["artVoorraad"], $_POST["artMinVoorraad"], $_POST["artMaxVoorraad"] , $_POST["artLocatie"] , $_POST["levId"]);
+    $artikelToUpdate->Updateartikel($connection->dbConnect);
+}
+
+if(ISSET($_POST["deleteartikel"]))
+{
+    $artikelToDelete = new artikel($_POST["artOmschrijving"], $_POST["artInkoop"],$_POST["artVerkoop"], $_POST["artVoorraad"], $_POST["artMinVoorraad"], $_POST["artMaxVoorraad"] , $_POST["artLocatie"] , $_POST["levId"]);
+    $artikelToDelete->Deleteartikel($connection->dbConnect);
+}
